@@ -9,7 +9,8 @@ configuration : KL slip 2D
 
 import os
 from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple, Union
-
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -42,14 +43,14 @@ FAULT_FILENAME: str = "sulawesi.csv"
 MAX_DEPTH: float = 71000.0
     
 # realization test and generation parameters
-NTRIAL_TEST: int = 10000                 # 10000
+NTRIAL_TEST: int = 10                 # 10000
 NTERM_TEST: int = 60
-NTRIAL_GEN: int = 20000                   # 20000
+NTRIAL_GEN: int = 20                   # 20000
 NTERM_GEN_LIST: List[int] = [7, 60]            # only two is allowed for graph
 MODES: Tuple[int, int] = (2, 4)
 
 # set directory filenames
-KLS_DIR: str = os.environ.get("KLS_DIR", "KLS_07_output")
+KLS_DIR: str = os.environ.get("KLS_DIR", "KLS_07_output_coba")
 os.makedirs(KLS_DIR, exist_ok=True)
 TOPO_DIR: str = os.environ.get("TOPO_DIR", "topo")
 
